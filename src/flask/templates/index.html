@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Image Resizer</h1>
+
+    <!-- バリデーションメッセージの表示 -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for category, message in messages %}
+            {{ message }}<br>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <div class="form-group">
+        <label for="input_folder">Input Folder:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="input_folder" name="input_folder" required readonly>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" onclick="selectFolder('input_folder')">Browse...</button>
+          </div>
+        </div>
+        {% if errors.input_folder %}
+          <div class="error-message">{{ errors.input_folder }}</div>
+        {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="output_folder">Output Folder:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="output_folder" name="output_folder" required readonly>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" onclick="selectFolder('output_folder')">Browse...</button>
+          </div>
+        </div>
+        {% if errors.output_folder %}
+          <div class="error-message">{{ errors.output_folder }}</div>
+        {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="width">Width:</label>
+        <input type="number" class="form-control" id="width" name="width" required>
+      </div>
+      <div class="form-group">
+        <label for="height">Height:</label>
+        <input type="number" class="form-control" id="height" name="height" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Resize Images</button>
+    </form>
+  </div>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function selectFolder(inputId) {
+      window.electron.selectFolder().then(folderPath => {
+        document.getElementById(inputId).value = folderPath;
+      }).catch(err => {
+        console.log(err);
+      });
+    }
+  </script>
+</body>
+</html>
