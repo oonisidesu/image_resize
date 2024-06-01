@@ -6,7 +6,9 @@ function selectFolder(inputId: string) {
   window.electron
     .selectFolder()
     .then((folderPath: string) => {
-      const inputElement = document.getElementById(inputId) as HTMLInputElement | null;
+      const inputElement = document.getElementById(
+        inputId,
+      ) as HTMLInputElement | null;
       if (inputElement) {
         inputElement.value = folderPath;
       } else {
