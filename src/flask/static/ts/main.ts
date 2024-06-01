@@ -1,3 +1,7 @@
+document.getElementById('selectFolderButton').addEventListener('click', () => {
+  selectFolder('inputFolder');
+});
+
 function selectFolder(inputId: string) {
   window.electron
     .selectFolder()
