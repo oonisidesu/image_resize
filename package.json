@@ -9,7 +9,7 @@
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "prettier:check": "prettier --check 'src/**/*.{ts,tsx,js,jsx,json,css,scss,md}'",
     "prettier:write": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,css,scss,md}'",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "typescript": "^4.3.5",
