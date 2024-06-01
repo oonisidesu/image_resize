@@ -41,9 +41,9 @@ Pythonの依存関係をインストールします。
 pip install -r requirements.txt
 ```
 
-#### Pythonの依存関係
+### 設定
 
-Pythonの依存関係をインストールします。
+プロジェクト内のディレクトリ構成を以下のようにしてください:
 
 ```
 image-resizer/
@@ -99,17 +99,6 @@ npm start
 - `npm run prettier:write`: Prettierを使ってコードをフォーマットします。
 - `npm run test`: Jestでテストスイートを実行します。
 
-## 貢献
-
-1. リポジトリをフォークします。
-2. 新しいブランチを作成します (`git checkout -b feature-branch`)。
-3. 変更を加えます。
-4. 変更をコミットします (`git commit -m 'Add some feature'`)。
-5. ブランチにプッシュします (`git push origin feature-branch`)。
-6. プルリクエストを開きます。
-
 ## ライセンス
 
 このプロジェクトはMITライセンスの下でライセンスされています。詳細については[LICENSE](LICENSE)ファイルを参照してください。
-=======
-# image_resize
