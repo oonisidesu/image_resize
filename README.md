@@ -99,6 +99,27 @@ npm start
 - `npm run prettier:write`: Prettierを使ってコードをフォーマットします。
 - `npm run test`: Jestでテストスイートを実行します。
 
+## シーケンス
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Renderer as Electron Renderer
+    participant Main as Electron Main
+    participant Flask as Flask Server
+
+    User->>Renderer: Click "Select Folder"
+    Renderer->>Main: IPC call 'select-folder'
+    Main->>User: Open folder dialog
+    User->>Main: Select folder
+    Main->>Renderer: Return folder path
+    Renderer->>User: Display selected path
+
+    User->>Flask: Submit form with folder path
+    Flask->>Flask: Resize images
+    Flask->>User: Return success/failure message
+```
+
 ## ライセンス
 
 このプロジェクトはMITライセンスの下でライセンスされています。詳細については[LICENSE](LICENSE)ファイルを参照してください。
