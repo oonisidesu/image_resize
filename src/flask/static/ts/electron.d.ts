@@ -1,5 +1,5 @@
 interface Window {
-    electron: {
-      selectFolder: () => Promise<string>;
-    };
-  }
+  electron: {
+    selectFolder: () => Promise<string>;
+  };
+}

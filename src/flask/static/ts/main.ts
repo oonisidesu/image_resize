@@ -6,7 +6,7 @@ function selectFolder(inputId: string) {
     } else {
       console.error(`Element with id ${inputId} not found.`);
     }
-  }).catch((err: any) => {
+  }).catch((err: Error) => {
     console.log(err);
   });
 }
