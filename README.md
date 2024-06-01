@@ -19,7 +19,7 @@
 ### リポジトリのクローン
 
 ```sh
-git clone https://github.com/yourusername/image-resizer.git
+git clone https://github.com/oonisidesu/image-resizer.git
 cd image-resizer
 ```
 
