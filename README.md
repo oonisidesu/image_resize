@@ -19,8 +19,8 @@
 ### リポジトリのクローン
 
 ```sh
-git clone https://github.com/oonisidesu/image-resizer.git
-cd image-resizer
+git clone https://github.com/oonisidesu/image-resize.git
+cd image-resize
 ```
 
 ### 依存関係のインストール
