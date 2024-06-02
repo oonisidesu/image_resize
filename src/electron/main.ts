@@ -13,7 +13,11 @@ function createWindow() {
   });
 
   mainWindow.loadURL('http://127.0.0.1:5000/');
-  mainWindow.webContents.openDevTools();
+
+  // 開発モードのときのみデベロッパーツールを開きます。
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools();
+  }
 }
 
 app.whenReady().then(() => {

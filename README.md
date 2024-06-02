@@ -57,8 +57,6 @@ image-resizer/
 │       ├── static
 │       │   ├── css
 │       │   │   └── styles.css
-│       │   ├── js
-│       │   │   └── main.js
 │       │   └── ts
 │       │       └── main.ts
 │       └── templates
